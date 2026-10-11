@@ -1,24 +1,75 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="index.css">
-  <title>NFL Teams</title>
-</head>
-<body>
-  <div class="container">
-    <div class="page-heading">
-      <p class="eyebrow">NFL 2026 explorer</p>
-      <h1>Choose a team</h1>
-      <p>Click a team to browse its 2026 schedule and results.</p>
-    </div>
-    <div class="row">
-      <div class="user-list">
-        <p class="loading">Loading NFL teams...</p>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Movie Search App</title>
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
+    <section id="landing">
+      <nav>
+        <div class="nav__container">
+          <img class="logo" alt=" Blockbuster Video 1987 to 1996 logo blank" class="_Cyjpk" src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/b3e63bd8-7785-430d-95ea-e431f52558f6/di6wssm-717807f2-b0c3-4cfb-9e22-c03680e6c18c.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiIvZi9iM2U2M2JkOC03Nzg1LTQzMGQtOTVlYS1lNDMxZjUyNTU4ZjYvZGk2d3NzbS03MTc4MDdmMi1iMGMzLTRjZmItOWUyMi1jMDM2ODBlNmMxOGMucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.rHi29EiwerahyWyDvz10kia_7QlFOwxrdT5WbGKFVC0" srcset="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/b3e63bd8-7785-430d-95ea-e431f52558f6/di6wssm-717807f2-b0c3-4cfb-9e22-c03680e6c18c.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiIvZi9iM2U2M2JkOC03Nzg1LTQzMGQtOTVlYS1lNDMxZjUyNTU4ZjYvZGk2d3NzbS03MTc4MDdmMi1iMGMzLTRjZmItOWUyMi1jMDM2ODBlNmMxOGMucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.rHi29EiwerahyWyDvz10kia_7QlFOwxrdT5WbGKFVC0 10000w" sizes="" property="contentUrl" fetchpriority="high" style="width: 500px; height: 316px;"></img>
+          <ul class="nav__links">
+            <li><a href="#" class="nav__link">Home</a></li>
+            <li><a href="#" class="nav__link">Contact</a></li>
+            <li><a href="#" class="nav__link">Books</a></li>
+          </ul>
+          <button class="btn__menu" onclick="openMenu()">
+            <i class="fas fa-bars"></i>
+          </button>
+          <div class="menu__backdrop">
+            <button class="btn__menu btn__menu--close" onclick="closeMenu()">
+              <i class="fas fa-times"></i>
+            </button>
+            <ul class="menu__links">
+              <li class="menu__list">
+                <a href="#" class="menu__link" onclick="closeMenu()">Home</a>
+              </li>
+              <li class="menu__list">
+                <a href="#featured" class="menu__link" onclick="closeMenu()"
+                  >Books</a
+                >
+              </li>
+              <li class="menu__list">
+                <a href="#" class="menu__link no-cursor" onclick="closeMenu()"
+                  >Contacts</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <header>
+        <h1>Movie Search App</h1>
+        <input
+          type="text"
+          id="search-input"
+          placeholder="Search for a movie..."
+        />
+        <button id="search-button">Search</button>
+      </header>
+    </section>
+    <main id="results"></main>
+    <footer>
+      <div class="container">
+        <div class="row row__column">
+          <a href="#">
+          <figure class="footer__logo">
+            <img src="./assets/Library.svg" class="footer__logo--img" alt="">
+          </figure>
+          </a>
+        <div class="footer__list">
+          <a href="" class="footer__link">Home</a>
+          <a href="" class="footer__link no__cursor">About</a>
+          <a href="" class="footer__link">Books</a>
+          <a href="" class="footer__link no__cursor">Contact</a>
+        </div>
+        <div class="footer__copyright">Copyright &copy; 2026 Movie Search App</div>
+        </div>
       </div>
-    </div>
-  </div>
+    </footer>
   <script src="index.js"></script>
-</body>
+  </body>
 </html>
