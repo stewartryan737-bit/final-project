@@ -17,8 +17,9 @@ body {
 }
 
 nav {
-  height: 80px;
   display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 p {
@@ -34,35 +35,40 @@ a:hover {
 }
 
 .nav__container {
-  width: 100%;
-  max-width: 1200px;
-  padding: 0 24px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  width: 100%;
+  padding: 20px 50px;
+  box-sizing: border-box;
 }
 
 .nav__links {
   display: flex;
-  gap: 16px;
-  margin-left: 16px;
-  text-decoration: none;
-  font-size: 20px;
-  color: #7342d6;
-  font-weight: bold;
-  padding: 8px;
+  list-style: none;
+  margin-left: auto;
+  gap: 20px;
 }
 
 .purple {
   color: #7342d6;
 }
 
-.logo {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  width: 150px;
-  height: auto;
+.blockbuster-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 250px;
+  height: 120px;
+}
+
+.logo-text {
+  color: #FFCC00;
+  font-family: 'Impact', Arial Black, sans-serif;
+  font-size: 2rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transform: skew(-10deg);
 }
 
 ul {
@@ -74,12 +80,7 @@ li {
 }
 
 .nav__link {
-  margin-left: 16px;
   text-decoration: none;
-  font-size: 20px;
-  color: #7342d6;
-  font-weight: bold;
-  padding: 8px;
 }
 
 .nav__link:hover {
@@ -160,24 +161,11 @@ li {
 }
 
 header {
-  height: calc();
+  height: calc(100vh - 80px); /* Adjust based on your nav height */
 }
 
-.header__container {
-  padding-top: 32px;
-  width: 100%;
-  max-width: 720px;
-  margin: 0 auto;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-}
-
-.header__description {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+input {
+  margin-left: 500px;
 }
 
 h1 {
@@ -235,7 +223,6 @@ button:active {
   cursor: not-allowed;
 }
 
-
 /* FOOTER */
 
 footer {
@@ -279,9 +266,8 @@ footer {
   .btn__menu {
     display: block;
   }
-
-  }
-  @media (max-width: 768px) {
+}
+@media (max-width: 768px) {
   .header__description {
     padding: 0 24px;
   }
@@ -297,4 +283,4 @@ footer {
   button {
     font-size: 18px;
   }
-  }
+}
