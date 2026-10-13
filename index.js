@@ -1,11 +1,18 @@
+let movie = "avengers";
+//
+
 async function main() {
+  const inputEl = document.querySelector("#movie-input");
+  const searchTerm = inputEl ? inputEl.value : movie;
+  if (!searchTerm) return;
+
   const movies = await fetch(
-    "http://www.omdbapi.com/?s=avengers&apikey=f2f5394e",
+    `https://www.omdbapi.com/?s=${searchTerm}&apikey=f2f5394e`
   );
   const moviesData = await movies.json();
-  const movieListEl = document.querySelector(".movie-list")
+  const movieListEl = document.querySelector(".movie-list");
   
-  movieListEl.innerHTML = (moviesData.Search ?? [])
+  const moviesHTML = (moviesData.Search ?? [])
   .map((movie) => `<div class="movie-card">
     <div class="movie__card--container">
       <h3>${movie.Title}</h3>
@@ -15,12 +22,17 @@ async function main() {
     </div>
   </div>`)
   .join("");
-   document.querySelector(".movie-list").innerHTML += moviesHTML;
+   movieListEl.innerHTML = moviesHTML;
 }
 main();
 
+function onSearchChange(event) {
+  movie = event.target.value;
+  main();
+}
+
 function openMenu() {
-  document.body.classList += "menu--open";
+  document.body.classList.add("menu--open");
 }
 
 function closeMenu() {

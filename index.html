@@ -4,89 +4,98 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Movie Search App</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
     <link rel="stylesheet" href="index.css" />
   </head>
   <body>
-    <section id="landing">
-      <nav>
-        <div class="nav__container">
-        
-          <ul class="nav__links">
-            <li><a href="#" class="nav__link">Home</a></li>
-            <li><a href="#" class="nav__link">Contact</a></li>
-            <li><a href="#" class="nav__link">Books</a></li>
-          </ul>
-          <button class="btn__menu" onclick="openMenu()">
-            <i class="fas fa-bars"></i>
+    <nav>
+      <div class="nav__container">
+        <ul class="nav__links">
+          <li><a href="#" class="nav__link">Home</a></li>
+          <li><a href="#" class="nav__link">Search Your Movie</a></li>
+          <li><a href="#" class="nav__link">Contact</a></li>
+        </ul>
+        <button class="btn__menu" onclick="openMenu()">
+          <i class="fas fa-bars"></i>
+        </button>
+        >
+        <div class="menu__backdrop">
+          <button class="btn__menu btn__menu--close" onclick="closeMenu()">
+            <i class="fas fa-times"></i>
           </button>
-          <div class="menu__backdrop">
-            <button class="btn__menu btn__menu--close" onclick="closeMenu()">
-              <i class="fas fa-times"></i>
-            </button>
-            <ul class="menu__links">
-              <li class="menu__list">
-                <a href="#" class="menu__link" onclick="closeMenu()">Home</a>
-              </li>
-              <li class="menu__list">
-                <a href="#featured" class="menu__link" onclick="closeMenu()"
-                  >Books</a
-                >
-              </li>
-              <li class="menu__list">
-                <a href="#" class="menu__link no-cursor" onclick="closeMenu()"
-                  >Contacts</a
-                >
-              </li>
-            </ul>
-          </div>
+          <ul class="menu__links">
+            <li class="menu__list">
+              <a href="#" class="menu__link" onclick="closeMenu()">Home</a>
+            </li>
+            <li class="menu__list">
+              <a href="#featured" class="menu__link" onclick="closeMenu()"
+                >Search Your Movie</a
+              >
+            </li>
+            <li class="menu__list">
+              <a href="#" class="menu__link no-cursor" onclick="closeMenu()"
+                >Contact</a
+              >
+            </li>
+          </ul>
         </div>
-      </nav>
+      </div>
+    </nav>
+    <section id="landing">
       <header>
         <h1>Movie Search App</h1>
         <input
           type="text"
-          id="search-input"
+          id="movie-input"
           placeholder="Search for a movie..."
         />
-        <button id="search-button">Search</button>
+        <button id="search-button" onclick="main()">Search</button>
       </header>
     </section>
-    <body>
-      <div class="container">
-        <div class="row">
-          <div class="movie-list">
-            <div class="movie">
-              <div class="movie-card">
-                <div class="movie__card--container">
-                  <h3>Movie's Name</h3>
-                  <p><b>Poster:</b></p>
-                  <p><b>Title:</b></p>
-                  <p><b>Year:</b></p>
-                </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="movie-list">
+          <div class="movie">
+            <div class="movie-card">
+              <div class="movie__card--container">
+                <h3>Movie's Name</h3>
+                <p><b>Poster:</b></p>
+                <p><b>Title:</b></p>
+                <p><b>Year:</b></p>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </body>
+    </div>
+
     <footer>
       <div class="container">
         <div class="row row__column">
           <a href="#">
-          <figure class="footer__logo">
-            <img src="./assets/Library.svg" class="footer__logo--img" alt="">
-          </figure>
+            <figure class="footer__logo">
+              <img
+                src="./assets/Library.svg"
+                class="footer__logo--img"
+                alt=""
+              />
+            </figure>
           </a>
-        <div class="footer__list">
-          <a href="" class="footer__link">Home</a>
-          <a href="" class="footer__link no__cursor">About</a>
-          <a href="" class="footer__link">Books</a>
-          <a href="" class="footer__link no__cursor">Contact</a>
-        </div>
-        <div class="footer__copyright">Copyright &copy; 2026 Movie Search App</div>
+          <div class="footer__list">
+            <a href="" class="footer__link">Home</a>
+            <a href="" class="footer__link no__cursor">Search Your Movie</a>
+            <a href="" class="footer__link">Contact</a>
+          </div>
+          <div class="footer__copyright">
+            Copyright &copy; 2026 Movie Search App
+          </div>
         </div>
       </div>
     </footer>
-  <script src="index.js"></script>
+    <script src="index.js"></script>
   </body>
 </html>
