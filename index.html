@@ -21,7 +21,7 @@
         <button class="btn__menu" onclick="openMenu()">
           <i class="fas fa-bars"></i>
         </button>
-        >
+      
         <div class="menu__backdrop">
           <button class="btn__menu btn__menu--close" onclick="closeMenu()">
             <i class="fas fa-times"></i>
@@ -47,28 +47,20 @@
     <section id="landing">
       <header>
         <h1>Movie Search App</h1>
-        <input
-          type="text"
-          id="movie-input"
-          placeholder="Search for a movie..."
-        />
-        <button id="search-button" onclick="main()">Search</button>
+        <div class="search-controls">
+          <input
+            type="text"
+            id="movie-input"
+            placeholder="Search for a movie..."
+          />
+          <button id="search-button" onclick="main()">Search</button>
+        </div>
       </header>
     </section>
 
     <div class="container">
       <div class="row">
         <div class="movie-list">
-          <div class="movie">
-            <div class="movie-card">
-              <div class="movie__card--container">
-                <h3>Movie's Name</h3>
-                <p><b>Poster:</b></p>
-                <p><b>Title:</b></p>
-                <p><b>Year:</b></p>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </div>

@@ -1,5 +1,4 @@
 let movie = "avengers";
-//
 
 async function main() {
   const inputEl = document.querySelector("#movie-input");
@@ -7,22 +6,29 @@ async function main() {
   if (!searchTerm) return;
 
   const movies = await fetch(
-    `https://www.omdbapi.com/?s=${searchTerm}&apikey=f2f5394e`
+    `https://www.omdbapi.com/?s=${searchTerm}&apikey=f2f5394e`,
   );
   const moviesData = await movies.json();
   const movieListEl = document.querySelector(".movie-list");
-  
+
   const moviesHTML = (moviesData.Search ?? [])
-  .map((movie) => `<div class="movie-card">
-    <div class="movie__card--container">
-      <h3>${movie.Title}</h3>
-      <p><b>Poster:</b> <img src="${movie.Poster}" alt="${movie.Title}"></p>
-      <p><b>Title:</b> ${movie.Title}</p>
-      <p><b>Year:</b> ${movie.Year}</p>
-    </div>
-  </div>`)
-  .join("");
-   movieListEl.innerHTML = moviesHTML;
+    .map(
+      (movie) => `<article class="movie-card">
+        <div class="movie-card__poster">
+          ${
+            movie.Poster !== "N/A"
+              ? `<img src="${movie.Poster}" alt="Poster for ${movie.Title}" loading="lazy">`
+              : `<div class="movie-card__poster-fallback">Poster unavailable</div>`
+          }
+        </div>
+        <div class="movie-card__details">
+          <h3>${movie.Title}</h3>
+          <p class="movie-card__year">${movie.Year}</p>
+        </div>
+      </article>`,
+    )
+    .join("");
+  movieListEl.innerHTML = moviesHTML;
 }
 main();
 
