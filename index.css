@@ -36,12 +36,30 @@ a:hover {
   text-decoration: underline;
 }
 
+.logo__img--wrapper {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+}
+
+.logo__img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: left;
+}
+
 .nav__container {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  padding: 20px 50px;
+  height: 200px;
+  padding: 0 50px;
   box-sizing: border-box;
 }
 
@@ -51,6 +69,13 @@ a:hover {
   margin-left: auto;
   gap: 20px;
   font-weight: 700;
+  z-index: 1;
+}
+
+.nav__link {
+  color: gray;
+  font-size: 24px;
+  text-decoration: none;
 }
 
 .purple {
@@ -65,12 +90,9 @@ li {
   list-style: none;
 }
 
-.nav__link {
-  text-decoration: none;
-}
-
 .nav__link:hover {
   text-decoration: underline;
+  
 }
 
 .nav__link--primary {
@@ -276,7 +298,9 @@ button:active {
   border: 1px solid #e7e7ee;
   border-radius: 14px;
   box-shadow: 0 6px 20px rgba(24, 20, 40, 0.08);
-  transition: transform 180ms ease, box-shadow 180ms ease;
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease;
 }
 
 .movie-card:hover {
