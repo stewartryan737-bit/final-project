@@ -11,7 +11,22 @@ async function main() {
   const moviesData = await movies.json();
   const movieListEl = document.querySelector(".movie-list");
 
-  const moviesHTML = (moviesData.Search ?? [])
+  let results = moviesData.Search ?? [];
+  const genre = document.querySelector("#genre-filter")?.value;
+  if (genre) {
+    const details = await Promise.all(
+      results.map((m) =>
+        fetch(`https://www.omdbapi.com/?i=${m.imdbID}&apikey=f2f5394e`).then(
+          (r) => r.json(),
+        ),
+      ),
+    );
+    results = results.filter((m, i) =>
+      (details[i].Genre ?? "").split(", ").includes(genre),
+    );
+  }
+
+  const moviesHTML = results
     .map(
       (movie) => `<article class="movie-card">
         <div class="movie-card__poster">
