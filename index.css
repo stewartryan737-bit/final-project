@@ -200,6 +200,26 @@ header {
   border-radius: 8px;
   background-color: #fff;
   box-shadow: 0 4px 16px rgba(36, 33, 50, 0.08);
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.genre-controls {
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 8px;
+  width: min(100%, 560px);
+  margin-right: 432px;
+}
+
+#genre-filter {
+  max-width: 100%;
+  padding: 8px;
+  border: 1px solid #d8d4e2;
+  border-radius: 6px;
+  background-color: #fff;
 }
 
 #movie-input {

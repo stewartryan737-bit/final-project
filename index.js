@@ -5,14 +5,19 @@ async function main() {
   const searchTerm = inputEl ? inputEl.value : movie;
   if (!searchTerm) return;
 
-  const movies = await fetch(
-    `https://www.omdbapi.com/?s=${searchTerm}&apikey=f2f5394e`,
-  );
-  const moviesData = await movies.json();
-  const movieListEl = document.querySelector(".movie-list");
-
-  let results = moviesData.Search ?? [];
   const genre = document.querySelector("#genre-filter")?.value;
+  const movieListEl = document.querySelector(".movie-list");
+  // OMDb returns 10 results per page; fetch more pages so a genre filter has enough to match
+  const pages = genre ? [1, 2, 3, 4, 5] : [1];
+  const pageData = await Promise.all(
+    pages.map((p) =>
+      fetch(
+        `https://www.omdbapi.com/?s=${encodeURIComponent(searchTerm)}&page=${p}&apikey=f2f5394e`,
+      ).then((r) => r.json()),
+    ),
+  );
+
+  let results = pageData.flatMap((d) => d.Search ?? []);
   if (genre) {
     const details = await Promise.all(
       results.map((m) =>
@@ -43,7 +48,8 @@ async function main() {
       </article>`,
     )
     .join("");
-  movieListEl.innerHTML = moviesHTML;
+  movieListEl.innerHTML =
+    moviesHTML || `<p class="no-results">No movies found.</p>`;
 }
 main();
 
