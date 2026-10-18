@@ -406,6 +406,10 @@ button:active {
   }
 }
 
+.banner__heading {
+  margin: 0 0 24px 592px;
+}
+
 #footer__banner {
   width: 100%;
   overflow-x: clip;
