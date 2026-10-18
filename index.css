@@ -89,7 +89,6 @@ li {
 
 .nav__link:hover {
   text-decoration: underline;
-  
 }
 
 .nav__link--primary {
@@ -204,18 +203,17 @@ header {
   margin-bottom: 16px;
 }
 
-.genre-controls {
+.year-controls {
   position: relative;
   display: flex;
-  justify-content: flex-end;
+  justify-content: flex-start;
   align-items: center;
   gap: 8px;
   width: min(100%, 560px);
-  margin-right: 432px;
 }
 
-#genre-filter {
-  max-width: 100%;
+#year-filter {
+  width: 130px;
   padding: 8px;
   border: 1px solid #d8d4e2;
   border-radius: 6px;
@@ -245,9 +243,28 @@ h1 {
 }
 
 h2 {
+  margin-left: 300px;
+  text-wrap: balance;
   text-align: center;
-  margin-bottom: 32px;
-  text-align: center;
+  background: linear-gradient(to right, #7342d6, #5d3bb5);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+  animation: Fadeup linear;
+  animation-timeline: view();
+  animation-range: entry 0% cover 30%;
+}
+
+@keyframes Fadeup {
+  from {
+    opacity: 0;
+    transform: translateY(50px) scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
 }
 
 button {
@@ -386,6 +403,32 @@ button:active {
 
   .movie-card:hover {
     transform: none;
+  }
+}
+
+#footer__banner {
+  width: 100%;
+  overflow-x: clip;
+  margin-bottom: 32px;
+}
+
+.banner__img {
+  width: 1200px;
+  margin: 0 0 44px 144px;
+  height: 320px;
+  transform: translateX(-100vw);
+}
+
+.banner__img.in-view {
+  animation: bannerAnimation 2.5s ease-in-out both;
+}
+
+@keyframes bannerAnimation {
+  from {
+    transform: translateX(-100vw);
+  }
+  to {
+    transform: translateX(0);
   }
 }
 

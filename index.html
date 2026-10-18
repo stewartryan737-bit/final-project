@@ -62,23 +62,16 @@
           />
           <button id="search-button" onclick="main()">Search</button>
         </div>
-        <div class="genre-controls">
-          <label for="genre-filter">Genre:</label>
-          <select id="genre-filter" onchange="main()">
-            <option value="">All genres</option>
-            <option>Action</option>
-            <option>Adventure</option>
-            <option>Animation</option>
-            <option>Comedy</option>
-            <option>Crime</option>
-            <option>Drama</option>
-            <option>Family</option>
-            <option>Fantasy</option>
-            <option>Horror</option>
-            <option>Romance</option>
-            <option>Sci-Fi</option>
-            <option>Thriller</option>
-          </select>
+        <div class="year-controls">
+          <label for="year-filter">Year:</label>
+          <input
+            type="number"
+            id="year-filter"
+            min="1888"
+            step="1"
+            placeholder="Any year"
+            onchange="main()"
+          />
         </div>
       </header>
     </section>
@@ -88,6 +81,11 @@
         <div class="movie-list"></div>
       </div>
     </div>
+
+    <section id="footer__banner">
+      <h2 class="banner__heading">A Time Capsule of Movies</h2>
+      <img class="banner__img" src="./assests-final-project/71XiFDEyNGL._AC_SL1500_.jpg" alt="">
+    </section>
 
     <footer>
       <div class="container">

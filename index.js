@@ -5,32 +5,27 @@ async function main() {
   const searchTerm = inputEl ? inputEl.value : movie;
   if (!searchTerm) return;
 
-  const genre = document.querySelector("#genre-filter")?.value;
+  const yearFilter = document.querySelector("#year-filter");
+  yearFilter.max = String(new Date().getFullYear());
+  if (!yearFilter.checkValidity()) {
+    yearFilter.reportValidity();
+    return;
+  }
+  const year = yearFilter.value;
   const movieListEl = document.querySelector(".movie-list");
-  // OMDb returns 10 results per page; fetch more pages so a genre filter has enough to match
-  const pages = genre ? [1, 2, 3, 4, 5] : [1];
+  const pages = year ? [1, 2, 3, 4, 5] : [1];
   const pageData = await Promise.all(
     pages.map((p) =>
       fetch(
-        `https://www.omdbapi.com/?s=${encodeURIComponent(searchTerm)}&page=${p}&apikey=f2f5394e`,
+        `https://www.omdbapi.com/?s=${encodeURIComponent(searchTerm)}${year ? `&y=${year}` : ""}&page=${p}&apikey=f2f5394e`,
       ).then((r) => r.json()),
     ),
   );
 
   let results = pageData.flatMap((d) => d.Search ?? []);
-  if (genre) {
-    const details = await Promise.all(
-      results.map((m) =>
-        fetch(`https://www.omdbapi.com/?i=${m.imdbID}&apikey=f2f5394e`).then(
-          (r) => r.json(),
-        ),
-      ),
-    );
-    results = results.filter((m, i) =>
-      (details[i].Genre ?? "").split(", ").includes(genre),
-    );
+  if (year) {
+    results = results.filter((movie) => movie.Year === year);
   }
-
   const moviesHTML = results
     .map(
       (movie) => `<article class="movie-card">
@@ -56,6 +51,20 @@ main();
 function onSearchChange(event) {
   movie = event.target.value;
   main();
+}
+
+const bannerImg = document.querySelector(".banner__img");
+if (bannerImg) {
+  const observer = new IntersectionObserver(
+    ([entry]) => {
+      if (entry.isIntersecting) {
+        bannerImg.classList.add("in-view");
+        observer.disconnect();
+      }
+    },
+    { threshold: 0.3 },
+  );
+  observer.observe(document.querySelector("#footer__banner"));
 }
 
 function openMenu() {
